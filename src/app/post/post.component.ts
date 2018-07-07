@@ -19,6 +19,6 @@ export class PostComponent implements OnInit {
 
     addPost() {
         this.ad.addPost(this.title, this.body)
-            .subscribe(_ => console.log(_));
+            
     }
 }

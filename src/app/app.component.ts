@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AdonisService} from './adonis.service';
-import {Subscription} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AdonisService } from './adonis.service';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -9,7 +9,7 @@ import {Subscription} from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
     title = 'app';
-    posts;
+    posts: any;
     private postSubscription: Subscription;
 
     constructor(private ad: AdonisService) {
@@ -17,10 +17,19 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.posts = this.ad.getPost();
+
+        this.getPosts();
+
         this.postSubscription = this.ad.posts.subscribe(
-            () => this.posts = this.ad.getPost()
-        );
+            () =>this.getPosts()
+        )
+
+    }
+
+    getPosts(){
+        this.ad.getPost().subscribe(
+            res => this.posts = res
+        )
     }
 
     ngOnDestroy() {
