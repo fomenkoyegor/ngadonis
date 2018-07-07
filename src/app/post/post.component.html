@@ -1,3 +1,19 @@
-<input type="text" placeholder="title" [(ngModel)]="title">
-<input type="text" placeholder="body" [(ngModel)]="body">
-<button (click)="addPost()">add</button>
+
+<form [formGroup]="postForm" (submit)="addPost(postForm.value)">
+
+        <div>
+            <label for="title">Title</label>
+            <input type="text" name="title" required [formControl]="postForm.controls['title']" placeholder="title" id="title">
+        </div>
+    
+        <div>
+            <label for="body">Body</label>
+            <input type="text" name="body" required [formControl]="postForm.controls['body']" placeholder="body" id="body">
+        </div>
+    
+        <div>
+            <input type="submit" [disabled]="!postForm.valid">
+        </div>
+    
+    
+    </form>

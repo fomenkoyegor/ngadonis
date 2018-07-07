@@ -23,16 +23,21 @@ export class AdonisService {
 
         return this.http.get(this.url + 'posts')
             .pipe(map(
-                (res)=>res['data']
+                (res) => res['data']
             ))
     }
 
-    addPost(title, text) {
-        return this.http.put(this.url + 'post', {
-            title: title,
-            body: text
-        }).subscribe(res => this.posts.next())
+    addPost(post:Post) {
+        return this.http.put(
+            this.url + 'post', 
+            post
+        ).subscribe(res => this.posts.next())
 
 
+    }
+
+    deletePost(id) {
+        return this.http.delete(this.url + `post/${id}`)
+            .subscribe(res => this.posts.next())
     }
 }

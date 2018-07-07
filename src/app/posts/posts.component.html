@@ -1,0 +1,8 @@
+
+<ul>
+  <li *ngFor="let post of posts.reverse()">
+    <p>{{post.title}}</p>
+    <p>{{post.body}}</p>
+    <button (click)="onDelete(post.id)">del</button>
+  </li>
+</ul>

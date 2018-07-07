@@ -7,32 +7,4 @@ import { Subscription } from 'rxjs';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
-    title = 'app';
-    posts: any;
-    private postSubscription: Subscription;
-
-    constructor(private ad: AdonisService) {
-
-    }
-
-    ngOnInit() {
-
-        this.getPosts();
-
-        this.postSubscription = this.ad.posts.subscribe(
-            () =>this.getPosts()
-        )
-
-    }
-
-    getPosts(){
-        this.ad.getPost().subscribe(
-            res => this.posts = res
-        )
-    }
-
-    ngOnDestroy() {
-        this.postSubscription.unsubscribe();
-    }
-}
+export class AppComponent { }
