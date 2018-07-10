@@ -6,18 +6,20 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { PostComponent } from './post/post.component';
 import { PostsComponent } from './posts/posts.component';
+import { MusicComponent } from './music/music.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       PostComponent,
-      PostsComponent
+      PostsComponent,
+      MusicComponent
    ],
    imports: [
       BrowserModule,
       FormsModule,
       HttpClientModule,
-      ReactiveFormsModule,
+      ReactiveFormsModule
    ],
    providers: [],
    bootstrap: [

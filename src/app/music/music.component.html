@@ -1,0 +1,13 @@
+<input type="text" name="name" placeholder="name" [(ngModel)]="name">
+<input #fileInput type="file"/>
+<button (click)="addMusic()">add</button>
+<hr>
+
+<ul>
+  <li *ngFor="let music of musics.reverse()">
+    <h4>{{music.name}}</h4>
+    <audio controls>
+      <source src="{{this.prefix}}{{music.path}}" type="audio/ogg; codecs=vorbis">
+    </audio>
+  </li>
+</ul>
